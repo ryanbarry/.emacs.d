@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(#1=(#("sclera" 0 6
+      (bmkp-full-record #1#))
+    (buffer-name . "sclera")
+    (visits . 0)
+    (time . #2=(21574 53973 213611 0))
+    (created . #2#)
+    (position . 239)
+    (filename . "   - no file -")
+    (desktop-file . "/Users/rbarry/isocket/desktops/sclera")
+    (handler . bmkp-jump-desktop))
+)
