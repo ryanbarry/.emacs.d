@@ -80,12 +80,20 @@
  '(backup-by-copying t)
  '(backup-directory-alist (quote (("." . "~/.saves"))))
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
- '(c-default-style (quote ((c-mode . "k&r") (c++-mode . "k&r") (java-mode . "java") (awk-mode . "awk") (other . "gnu"))))
+ '(c-default-style
+   (quote
+    ((c-mode . "k&r")
+     (c++-mode . "k&r")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(coffee-tab-width 2)
  '(column-number-mode t)
- '(confirm-kill-emacs yes-or-no-p)
+ '(confirm-kill-emacs (quote yes-or-no-p))
  '(cursor-color "#708183")
- '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(foreground-color "#708183")
  '(ido-create-new-buffer (quote always))
  '(ido-enable-flex-matching t)
@@ -94,7 +102,11 @@
  '(magit-git-executable "/usr/local/bin/git")
  '(magit-use-overlays nil)
  '(package-archive-enable-alist (quote (("gnu") ("melpa") ("marmalade" scad-mode))))
- '(package-archives (quote (("melpa" . "http://melpa.milkbox.net/packages/") ("gnu" . "http://elpa.gnu.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(package-archives
+   (quote
+    (("melpa" . "http://melpa.milkbox.net/packages/")
+     ("gnu" . "http://elpa.gnu.org/packages/")
+     ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(tramp-default-method "ssh"))
 
 
@@ -133,7 +145,8 @@
 (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "/usr/local/bin/clisp")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;(setq inferior-lisp-program "/usr/local/bin/clisp")
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
@@ -155,4 +168,3 @@
 (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
 (setq common-lisp-hyperspec-root "file:/Users/rbarry/.emacs.d/hyperspec/HyperSpec/")
 
-(server-start)
