@@ -61,14 +61,6 @@
 ;; this is a global minor mode for undo/redo on window adjustments
 (winner-mode 1)
 
-;; change magit diff colors
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-add "green4")
-     (set-face-foreground 'magit-diff-del "red3")
-     (when (not window-system)
-       (set-face-background 'magit-item-highlight "black"))))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -107,6 +99,9 @@
     (("melpa" . "http://melpa.milkbox.net/packages/")
      ("gnu" . "http://elpa.gnu.org/packages/")
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
+ '(package-selected-packages
+   (quote
+    (switch-window magit paredit solarized-theme color-theme)))
  '(tramp-default-method "ssh"))
 
 
