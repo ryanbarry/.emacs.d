@@ -101,7 +101,7 @@
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (switch-window magit paredit solarized-theme color-theme)))
+    (ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
  '(tramp-default-method "ssh"))
 
 
@@ -113,6 +113,8 @@
  )
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region) ;; remap since C-w was formerly kill-region
