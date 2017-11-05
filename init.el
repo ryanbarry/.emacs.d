@@ -87,6 +87,7 @@
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(foreground-color "#708183")
+ '(gofmt-command "goimports")
  '(ido-create-new-buffer (quote always))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
@@ -101,7 +102,8 @@
      ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
-    (ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
+    (go-mode typescript-mode jinja2-mode markdown-mode ox-gfm ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
+ '(tab-width 4)
  '(tramp-default-method "ssh"))
 
 
@@ -118,6 +120,7 @@
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region) ;; remap since C-w was formerly kill-region
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
 
 (global-set-key (kbd "C-c p s") 'espotify)
 (global-set-key (kbd "C-c p p") 'espotify-playpause)
@@ -137,13 +140,14 @@
 
 (add-hook 'coffee-mode-hook 'coffee-doc)
 
+(add-hook 'go-mode-hook
+          `(lambda () (add-hook 'before-save-hook 'gofmt-before-save)))
+
 (put 'dired-find-alternate-file 'disabled nil)
 
 (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
-;(setq inferior-lisp-program "/usr/local/bin/clisp")
 
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
@@ -181,3 +185,25 @@
             (tramp-file-name-localname vec)))
        (concat "/sudo:root@localhost:" (buffer-file-name))))
     (goto-char position)))
+
+;; some helpers
+(defun func-region (start end func)
+  "run a function over the region between START and END in current buffer."
+  (save-excursion
+    (let ((text (delete-and-extract-region start end)))
+      (insert (funcall func text)))))
+
+(defun hex-region (start end)
+  "urlencode the region between START and END in current buffer."
+  (interactive "r")
+  (func-region start end #'url-hexify-string))
+
+(defun unhex-region (start end)
+  "de-urlencode the region between START and END in current buffer."
+  (interactive "r")
+  (func-region start end #'url-unhex-string))
+
+(require 'ansi-color)
+(defun display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
