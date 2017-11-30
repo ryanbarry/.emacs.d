@@ -1,6 +1,7 @@
 ;; marmalade - http://marmalade-repo.org/
 ;; melpa - http://melpa.milkbox.net/
 (require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; (load-file "~/projects/espotify/demo.el")
@@ -94,12 +95,6 @@
  '(magit-diff-use-overlays nil)
  '(magit-git-executable "/usr/local/bin/git")
  '(magit-use-overlays nil)
- '(package-archive-enable-alist (quote (("gnu") ("melpa") ("marmalade" scad-mode))))
- '(package-archives
-   (quote
-    (("melpa" . "http://melpa.milkbox.net/packages/")
-     ("gnu" . "http://elpa.gnu.org/packages/")
-     ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-selected-packages
    (quote
     (go-mode typescript-mode jinja2-mode markdown-mode ox-gfm ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
