@@ -99,7 +99,7 @@
  '(package-selected-packages
    (quote
     (go-mode typescript-mode jinja2-mode markdown-mode ox-gfm ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
- '(tab-width 4)
+ '(tab-width 2)
  '(tramp-default-method "ssh"))
 
 
