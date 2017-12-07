@@ -92,6 +92,7 @@
  '(ido-create-new-buffer (quote always))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
+ '(indent-tabs-mode nil)
  '(magit-diff-use-overlays nil)
  '(magit-git-executable "/usr/local/bin/git")
  '(magit-use-overlays nil)
