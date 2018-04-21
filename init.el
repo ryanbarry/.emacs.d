@@ -98,7 +98,7 @@
  '(magit-use-overlays nil)
  '(package-selected-packages
    (quote
-    (go-mode typescript-mode jinja2-mode markdown-mode ox-gfm ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
+    (ace-jump-mode restclient go-mode typescript-mode jinja2-mode markdown-mode ox-gfm ag docker dockerfile-mode salt-mode switch-window magit paredit solarized-theme color-theme)))
  '(tab-width 2)
  '(tramp-default-method "ssh"))
 
@@ -111,8 +111,11 @@
  )
 
 (global-set-key (kbd "C-x g") 'magit-status)
+
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-x C-k") 'kill-region) ;; remap since C-w was formerly kill-region
